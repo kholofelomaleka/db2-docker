@@ -1,0 +1,9 @@
+When installing docker to rhel, and get an error 404 (Error: Failed to download metadata for repo 'docker-ce-stable': Cannot download repomd.xml: Cannot download repodata/repomd.xml)
+locate docker-ce.repo in the /etc/yum.repos.d directory and add (or delete the content and replace) code below:
+
+[docker-ce-stable]
+name=Docker CE Stable - $basearch
+baseurl=https://download.docker.com/linux/centos/$releasever/$basearch/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://download.docker.com/linux/centos/gpg
